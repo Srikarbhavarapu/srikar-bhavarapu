@@ -1,0 +1,38 @@
+Problem statement:
+Create a simple django application where a user can create, read, update, and delete notes. A note model will have title, description, creation date and updation date. Simple. Right? 
+
+Now create a REST API using django rest framework - https://www.django-rest-framework.org/ 
+
+settings.py:
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework',
+    'webapp'
+]
+
+Models.py:
+
+from django.db import models
+class user(models.Model):
+    title=models.CharField(max_length=10)
+    description=models.CharField(max_length=10)
+    creation_date=models.IntegerField()
+    updation_date=models.IntegerField()
+
+    def _str_(self):
+       return self.title
+
+Admin.py:
+
+from django.contrib import admin
+from . models import user
+admin.site.register(user)
+
+web URL:
+http://127.0.0.1:8000/admin/
